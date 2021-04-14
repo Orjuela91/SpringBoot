@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="index :: head">
+        <title>Login</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body id="page-top">
+        <header th:replace="index :: header"></header>
+        <br/>
+        <br/>
+        <br/>
+        <!-- Outer Row -->
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10 col-lg-12 col-md-9">
+
+                <div class="card o-hidden border-0 shadow-lg my-5">
+                    <div class="card-body p-0">
+                        <!-- Nested Row within Card Body -->
+                        <div class="row">
+                            <div class="col-lg-6 d-none d-lg-block" style="background: url(https://source.unsplash.com/K4mSJ7kc0As/600x800);
+                                 background-position: center;
+                                 background-size: cover;"></div>
+                            <div class="col-lg-6">
+                                <div class="p-5">
+                                    <div class="text-center">
+                                        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+                                    </div>
+                                    <form class="user was-validated" method="POST" th:action="@{/login}">
+                                        <div class="form-group">
+                                            <input type="email" class="form-control form-control-user"
+                                                   name="username" id="username" aria-describedby="emailHelp"
+                                                   placeholder="Enter Email Address..."
+                                                   required="true"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="password" class="form-control form-control-user"
+                                                   name="password" id="password" placeholder="Password"
+                                                   required="true"/>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="custom-control custom-checkbox small">
+                                                <input type="checkbox" class="custom-control-input" id="customCheck"/>
+                                                <label class="custom-control-label" for="customCheck">Remember
+                                                    Me</label>
+                                            </div>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-block" style="font-size: .8rem;
+                                           border-radius: 10rem;
+                                           padding: .75rem 1rem;">
+                                            Login
+                                        </button>
+                                        <hr/>
+                                        <a href="index.html" class="btn btn-block" style="font-size: .8rem;
+                                           border-radius: 10rem;
+                                           padding: .75rem 1rem;
+                                           color: #fff;
+                                           background-color: #ea4335;
+                                           border-color: #fff;">
+                                            <i class="fab fa-google fa-fw"></i> Login with Google
+                                        </a>
+                                        <a href="index.html" class="btn btn-block" style="font-size: .8rem;
+                                           border-radius: 10rem;
+                                           padding: .75rem 1rem;
+                                           color: #fff;
+                                           background-color: #3b5998;
+                                           border-color: #fff;">
+                                            <i class="fab fa-facebook-f fa-fw"></i> Login with Facebook
+                                        </a>
+                                    </form>
+                                    <hr/>
+                                    <div class="text-center">
+                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
+                                    </div>
+                                    <div class="text-center">
+                                        <a class="small" th:href="@{/register}">Create an Account!</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <footer th:replace="index :: footer"></footer>
+        <section th:replace="index :: scripts"></section>
+
+    </body>
+</html>

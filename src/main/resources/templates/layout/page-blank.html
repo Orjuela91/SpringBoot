@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+    <head th:replace="/layout/scripts :: head">
+        <title>Page-404</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body id="page-top">
+
+        <!-- Page Wrapper -->
+        <div id="wrapper">
+
+            <section th:replace="/layout/sidebar :: sidebar"></section>
+
+            <!-- Content Wrapper -->
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <section th:replace="/layout/topbar :: topbar"></section>
+
+<!------------------- Begin Page Content ------------------------------------------------------------------------------>
+                    <div class="container-fluid">
+
+                        <!-- Page Heading -->
+                        <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+
+                    </div>
+<!------------------------------- End Page Content --------------------------------------------------------------------->
+                </div>
+                <!-- End of Main Content -->
+
+                <section th:replace="/layout/footer :: footer"></section>
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <section th:replace="/layout/scripts :: scripts"></section>
+
+    </body>
+</html>

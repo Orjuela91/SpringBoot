@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="index :: head">
+        <title>Register</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    </head>
+    <body id="page-top">
+        <header th:replace="index :: header"></header>
+        <br/>
+        <br/>
+        <br/>
+        <div class="card o-hidden border-0 shadow-lg my-5">
+            <div class="card-body p-0">
+                <!-- Nested Row within Card Body -->
+                <div class="row">
+                    <div class="col-lg-5 d-none d-lg-block" 
+                         style="background: url(https://source.unsplash.com/Mv9hjnEUHR4/600x800);
+                         background-position: center;
+                         background-size: cover;"></div>
+                    <div class="col-lg-7">
+                        <div class="p-5">
+                            <div class="text-center">
+                                <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                            </div>
+                            <form class="user was-validated" method="POST" 
+                                  th:action="@{/create-user}" th:object="${user}">
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" 
+                                               class="form-control form-control-user" 
+                                               th:field="*{firstName}" required="true"
+                                               placeholder="First Name"/>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" 
+                                               class="form-control form-control-user" 
+                                               th:field="*{lastName}" required="true"
+                                               placeholder="Last Name"/>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <input type="email" 
+                                           class="form-control form-control-user"
+                                           placeholder="Email Address" 
+                                           th:field="*{username}" required="true"/>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="password" 
+                                               class="form-control form-control-user"
+                                               placeholder="Password" 
+                                               th:field="*{password}" 
+                                               required="true"/>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="password" 
+                                               class="form-control form-control-user"
+                                               th:field="*{confirmPassword}"
+                                               placeholder="Repeat Password"
+                                               required="true"/>
+                                    </div>
+                                </div>
+                                <div th:if="${errors}" class="badge-warning mb-2 text-center text-white rounded">
+                                    <span style="font-size: large">[[${errors.get('email')}]]</span>
+                                    <span style="font-size: large">[[${errors.get('password')}]]</span>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary btn-block" style="font-size: .8rem;
+                                   border-radius: 10rem;
+                                   padding: .75rem 1rem;">
+                                    Register Account
+                                </button>
+                                <hr/>
+                                <a href="#" class="btn btn-block" style="font-size: .8rem;
+                                   border-radius: 10rem;
+                                   padding: .75rem 1rem;
+                                   color: #fff;
+                                   background-color: #ea4335;
+                                   border-color: #fff;">
+                                    <i class="fab fa-google fa-fw"></i> Register with Google
+                                </a>
+                                <a href="#" class="btn btn-block" style="font-size: .8rem;
+                                   border-radius: 10rem;
+                                   padding: .75rem 1rem;
+                                   color: #fff;
+                                   background-color: #3b5998;
+                                   border-color: #fff;">
+                                    <i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+                                </a>
+                            </form>
+                            <hr/>
+                            <div class="text-center">
+                                <a class="small" href="forgot-password.html">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="login.html">Already have an account? Login!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer th:replace="index :: footer"></footer>
+        <section th:replace="index :: scripts"></section>
+
+    </body>
+</html>
