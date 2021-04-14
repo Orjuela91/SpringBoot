@@ -81,7 +81,7 @@ public class HomeController {
         
         List<Rol> roles = new ArrayList<Rol>();
         
-        roles.add(rolService.findRolByName("USER"));
+        roles.add(rolService.findRolByName("ROLE_USER"));
         
         usuario.setRoles(roles);
         

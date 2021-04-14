@@ -29,34 +29,34 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Service("userDetailsService")
 @Slf4j
-public class UsuarioService implements UserDetailsService{
+public class UsuarioService implements UserDetailsService {
 
     @Autowired
     private UsuarioDao usuarioDao;
-    
+
     @Override
-    @Transactional(readOnly=true)
+    @Transactional(readOnly = true)
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         Usuario usuario = usuarioDao.findByUsername(email);
-        
-        if(usuario == null){
+
+        if (usuario == null) {
             throw new UsernameNotFoundException(email);
         }
-        
+
         List<GrantedAuthority> roles = new ArrayList<GrantedAuthority>();
-        
-        for(Rol rol: usuario.getRoles()){
+
+        for (Rol rol : usuario.getRoles()) {
             roles.add(new SimpleGrantedAuthority(rol.getName()));
         }
-        log.info("usuario login:" + usuario);
+
         return new User(usuario.getUsername(), usuario.getPassword(), roles);
     }
-    
+
     @Transactional
-    public void saveUser(Usuario usuario) throws SQLIntegrityConstraintViolationException{
+    public void saveUser(Usuario usuario) throws SQLIntegrityConstraintViolationException {
         Usuario user = usuarioDao.findByUsername(usuario.getUsername());
-        
-        if(user != null){
+
+        if (user != null) {
             throw new SQLIntegrityConstraintViolationException("email is already registered");
         }
         usuarioDao.save(usuario);

@@ -52,9 +52,12 @@ and open the template in the editor.
                                                     Me</label>
                                             </div>
                                         </div>
+                                        <div th:if="${param.error}" class="badge-warning mb-2 text-center text-white rounded">
+                                            <span style="font-size: large">Bad credentials</span>
+                                        </div>
                                         <button type="submit" class="btn btn-primary btn-block" style="font-size: .8rem;
-                                           border-radius: 10rem;
-                                           padding: .75rem 1rem;">
+                                                border-radius: 10rem;
+                                                padding: .75rem 1rem;">
                                             Login
                                         </button>
                                         <hr/>
